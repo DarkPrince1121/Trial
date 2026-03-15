@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import MarketingNav from '@/components/marketing/MarketingNav'
+import MarketingFooter from '@/components/marketing/MarketingFooter'
 
 const FAQS = [
   {
@@ -34,20 +36,20 @@ const FAQS = [
     q: 'Is there a free trial?',
     a: 'Yes — the Free plan gives you 3 narrative drafts per month at no cost, with no credit card required. This lets you evaluate the product before upgrading.',
   },
+  {
+    q: 'What is included in the Lifetime plan?',
+    a: 'Lifetime gives you all Pro features permanently for a one-time payment of $297. No subscription, no renewal fees, no price increases. Includes unlimited narratives, DOCX/PDF export, templates, statement upload, and revision mode.',
+  },
+  {
+    q: 'How does the Team plan work?',
+    a: 'The Team plan includes 5 named seats. Each seat is a separate user account with full Pro features. Team plans also include shared templates accessible to all team members, a full audit log, and admin team management tools.',
+  },
 ]
 
 export default function FAQPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans">
-      <nav className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-5 h-14 flex items-center justify-between">
-          <Link href="/" className="font-display text-base font-bold text-accent">NARRATEAML</Link>
-          <div className="flex items-center gap-3">
-            <Link href="/sign-in" className="btn-ghost text-sm py-2">Sign In</Link>
-            <Link href="/sign-up" className="btn-primary text-sm py-2">Start Free</Link>
-          </div>
-        </div>
-      </nav>
+      <MarketingNav />
 
       <div className="max-w-3xl mx-auto px-5 py-16 space-y-10">
         <div>
@@ -57,17 +59,38 @@ export default function FAQPage() {
           <h1 className="font-display text-4xl font-bold text-text-primary mb-3">
             Frequently Asked Questions
           </h1>
+          <p className="text-text-muted">
+            Can&apos;t find what you&apos;re looking for? Email us at{' '}
+            <a href="mailto:support@narrateaml.com" className="text-accent hover:text-accent-light transition-colors">
+              support@narrateaml.com
+            </a>
+          </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {FAQS.map(({ q, a }) => (
-            <div key={q} className="card space-y-2">
-              <h3 className="font-display font-bold text-text-primary">{q}</h3>
-              <p className="text-text-secondary text-sm leading-relaxed">{a}</p>
+            <div key={q} className="card">
+              <details className="group">
+                <summary className="flex items-center justify-between cursor-pointer list-none text-text-primary font-sans font-medium text-sm select-none hover:text-accent transition-colors">
+                  {q}
+                  <span className="text-text-muted text-xs shrink-0 ml-4 group-open:rotate-180 transition-transform">▾</span>
+                </summary>
+                <p className="text-text-secondary text-sm leading-relaxed mt-3">{a}</p>
+              </details>
             </div>
           ))}
         </div>
+
+        <div className="ai-warning-banner">
+          <span>⚠</span>
+          <span className="text-xs">
+            AI-Assisted Draft — Review for accuracy, completeness, and regulatory suitability before submission.
+            NarrateAML does not provide legal advice and is not a FINTRAC filing tool.
+          </span>
+        </div>
       </div>
+
+      <MarketingFooter />
     </div>
   )
 }

@@ -1,14 +1,12 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import MarketingNav from '@/components/marketing/MarketingNav'
+import MarketingFooter from '@/components/marketing/MarketingFooter'
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans">
-      <nav className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-5 h-14 flex items-center justify-between">
-          <Link href="/" className="font-display text-base font-bold text-accent">NARRATEAML</Link>
-        </div>
-      </nav>
+      <MarketingNav />
 
       <div className="max-w-3xl mx-auto px-5 py-16 space-y-8">
         <div>
@@ -39,7 +37,7 @@ export default function PrivacyPage() {
             },
             {
               title: 'AI and Third-Party Services',
-              content: 'We use Anthropic Claude API for narrative generation. Your form data and investigator notes are transmitted to Anthropic for processing. We do not include personal client information beyond what you explicitly enter. We do not use your data to train Anthropic models. See Anthropic\'s privacy policy for their data handling practices.',
+              content: "We use Anthropic Claude API for narrative generation. Your form data and investigator notes are transmitted to Anthropic for processing. We do not include personal client information beyond what you explicitly enter. We do not use your data to train Anthropic models. See Anthropic's privacy policy for their data handling practices.",
             },
             {
               title: 'Analytics',
@@ -61,6 +59,8 @@ export default function PrivacyPage() {
           ))}
         </div>
       </div>
+
+      <MarketingFooter />
     </div>
   )
 }

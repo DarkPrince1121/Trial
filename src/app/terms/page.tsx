@@ -1,14 +1,12 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import MarketingNav from '@/components/marketing/MarketingNav'
+import MarketingFooter from '@/components/marketing/MarketingFooter'
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans">
-      <nav className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-4xl mx-auto px-5 h-14 flex items-center justify-between">
-          <Link href="/" className="font-display text-base font-bold text-accent">NARRATEAML</Link>
-        </div>
-      </nav>
+      <MarketingNav />
 
       <div className="max-w-3xl mx-auto px-5 py-16 space-y-8">
         <div>
@@ -27,11 +25,11 @@ export default function TermsPage() {
             },
             {
               title: '2. No Legal Advice',
-              content: 'Nothing in NarrateAML\'s outputs constitutes legal advice. You are solely responsible for ensuring that any submitted reports comply with applicable regulatory requirements. Consult qualified legal and compliance professionals for advice specific to your situation.',
+              content: "Nothing in NarrateAML's outputs constitutes legal advice. You are solely responsible for ensuring that any submitted reports comply with applicable regulatory requirements. Consult qualified legal and compliance professionals for advice specific to your situation.",
             },
             {
               title: '3. User Responsibilities',
-              content: 'You are responsible for: reviewing all AI-generated narrative drafts before submission; ensuring factual accuracy of all information submitted; compliance with FINTRAC, your institution\'s AML policies, and all applicable laws; maintaining the confidentiality of your account credentials; not uploading files containing malware or inappropriate content.',
+              content: "You are responsible for: reviewing all AI-generated narrative drafts before submission; ensuring factual accuracy of all information submitted; compliance with FINTRAC, your institution's AML policies, and all applicable laws; maintaining the confidentiality of your account credentials; not uploading files containing malware or inappropriate content.",
             },
             {
               title: '4. Statement File Processing',
@@ -73,6 +71,8 @@ export default function TermsPage() {
           </span>
         </div>
       </div>
+
+      <MarketingFooter />
     </div>
   )
 }
